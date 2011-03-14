@@ -1,0 +1,26 @@
+Sections:
+- why we did this
+  - why is it useful?
+  - target applications
+  - other applications
+- benchmarking
+  - percent time for instructions / instruction combinations
+- pattern finding
+  - graphic of a potential pattern  -  pictures?
+  - decisions for selecting combinations to optimize
+    - constraints
+  - how we did it
+  - future extensions
+    - call graph analysis
+- instruction generation
+  - image of ARM7 architecture
+  - SimpleScalar implementation with macros
+  -
+- performance analysis
+  - comparison of runtimes, instruction count, memory usage
+  - point at video
+  - bar graphs
+  - 
+
+- Tetris
+  - turn left-rotate-left into a single command
