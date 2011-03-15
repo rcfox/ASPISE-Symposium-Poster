@@ -60,6 +60,10 @@
 \setlength{\parsep}{0pt}%
 }
 
+\renewenvironment{itemize}
+  {\begin{list}{\labelitemi}{\leftmargin=1em} \compresslist}
+  {\end{list}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Begin of Document
@@ -161,19 +165,32 @@
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=baposterBGone!80!black!#1!white,line width=0.03em] (0,0) circle(0.18em);}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Introduction}{name=introduction,column=0,row=0}{
+  \headerbox{Overview}{name=overview,column=0,row=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Foo
-    \\
- }
+    \begin{itemize}
+    \item Problems:
+      \begin{itemize}
+      \item It's getting harder to make computers faster.
+      \item Writing software is much easier than designing a better processor.
+      \end{itemize}
+    \item Solution:
+      \begin{itemize}
+      \item Optimize your hardware for your software!
+      \end{itemize}
+    \item How?
+      \begin{itemize}
+      \item Perform dynamic code analysis to find common patterns of instructions.
+      \item Turn profitable patterns into new instructions.
+      \end{itemize}
+    \end{itemize}
+  }
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Target Applications}{name=applications,column=1,span=2,row=0}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Foo
-    \\
- }
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   \headerbox{Applications}{name=applications,column=1,span=2,row=0}{
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+%%  }
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,9 +210,17 @@
 
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Benchmarking}{name=benchmarking,below=introduction,above=generation}{
+  \headerbox{Targeted Application}{name=target,below=overview,above=generation}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Our benchmarks revolve around the Kirsch edge detection algorithm, which is mathematically- and CPU-intensive. Here is an example of the input and output of the edge detection program:
+    \begin{itemize}
+    \item Edge Detection
+      \begin{itemize}
+      \item Uses the Kirsch edge detection algorithm to find the edges in an image.
+      \item Commonly used for computer vision.
+      \item Speed is important!
+      \end{itemize}
+    \item Running on an ARM7 processor.
+    \end{itemize}
 
     \begin{center}
       \begin{tabular}{c c}
@@ -203,14 +228,13 @@
         \includegraphics[scale=0.75]{medium} &
         \includegraphics[scale=0.75]{medium_out}  
       \end{tabular}
-    \end{center}
-    
-    The edge detector runs inside of SimpleScalar to give us run-time and instruction execution statistics that allow for dynamic code analysis.
+    \end{center}    
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Pattern Finding}{name=patternfinding,column=1,span=2,below=applications,above=generation}{
+  \headerbox{Pattern Finding}{name=patternfinding,column=1,span=2,above=generation}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
     \includegraphics[trim=34mm 30mm 10mm 20mm,clip=true,scale=0.5]{arm_cpu}
     \\
   }
