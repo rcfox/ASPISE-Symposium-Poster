@@ -196,8 +196,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Definitions}{name=definitions,column=3,row=0}{
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Foo
-    \\
+    \begin{itemize}
+      \item \textbf{CPI} Cycles Per Instruction
+    \end{itemize}
  }  
 
 
@@ -205,7 +206,9 @@
   \headerbox{Instruction Generation}{name=generation,column=0,span=3,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \includegraphics[trim=25mm 35mm 18mm 60mm,clip=true,scale=0.5]{arm_instructions}
-    \\
+    \begin{itemize}
+      \item Constraints in bus bandwidth, instruction length, number of operands and more
+    \end{itemize}
   }
 
   
@@ -243,8 +246,9 @@
   \headerbox{Performance Analysis}{name=analysis,column=3,below=definitions,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
-      \item Run a test program on original and extended ARM7 and compare results.
+      \item Run a test program on original and extended ARM7 and compare results
     \end{itemize}
+.
 
     \begin{tabular}{| l | c | c |}
       \hline
@@ -257,6 +261,11 @@
       new inst cycles & 3 & 3 \\ \hline
       \textbf{Speedup} & 4\% & 4\% \\ \hline
     \end{tabular}
+
+    \begin{itemize}
+      \item Most performance gain comes from reduced CPI.
+    \end{itemize}
+
   }
 
 \end{poster}%
