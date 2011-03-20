@@ -204,16 +204,22 @@
     \end{itemize}
  }  
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Instruction Generation}{name=generation,column=0,span=1.5,above=bottom}{
+  \headerbox{}{name=overview2,column=0,above=bottom} {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \includegraphics[trim=25mm 35mm 18mm 60mm,clip=true,scale=0.5]{arm_instructions}
-  }
-
+     \begin{itemize}
+       \item Useful for...
+       \begin{itemize}
+         \item Creating CPU prototypes
+         \item Embedded system running a limited range of applications
+         \item Design of GPU by identifying potential new instructions
+         \item Optimization of general programs by pattern recognition
+       \end{itemize}
+     \end{itemize}
+   }
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Targeted Application}{name=target,below=overview,above=generation}{
+  \headerbox{Targeted Application}{name=target,below=overview,above=overview2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
     \item Edge Detection
@@ -233,36 +239,18 @@
       \end{tabular}
     \end{center}    
   }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{}{name=overview2,column=1,span=1}
-   {
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-     \begin{itemize}
-       \item Useful for...
-       \begin{itemize}
-         \item Creating CPU prototypes
-         \item Embedded system running a limited range of applications
-         \item Design of GPU by identifying potential new instructions
-         \item Optimization of general programs by pattern recognition
-       \end{itemize}
-     \end{itemize}
-   }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Pattern Finding}{name=patternfinding,column=2,span=1,above=generation}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Implementation}{name=implementation,column=1,span=2,row=0}{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \includegraphics[trim=25mm 35mm 18mm 60mm,clip=true,scale=0.25]{arm_instructions} \\
     \includegraphics[trim=34mm 30mm 10mm 20mm,clip=true,scale=0.5]{arm_cpu}
     \\
-  }
 
-% Define block styles
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, -latex]
+    % Define block styles
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+      text width=5em, text centered, rounded corners, minimum height=4em]
+    \tikzstyle{line} = [draw, -latex]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{}{name=generation2,column=1.5,span=1.5,above=bottom,below=patternfinding}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{tikzpicture}[node distance = 2cm, auto]
       % Place nodes
       \node [block] (parse) {Parse dynamic inst count};
@@ -284,7 +272,7 @@
     \end{tikzpicture}
 
     \begin{itemize}
-      \item Constraints in bus bandwidth, instruction length, number of operands and more
+    \item Constraints in bus bandwidth, instruction length, number of operands and more
     \end{itemize}
   }
 
