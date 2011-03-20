@@ -199,6 +199,8 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
       \item \textbf{CPI} Cycles Per Instruction
+      \item \textbf{SIMD} Single Instruction, Multiple Data
+      \item \textbf{GPU} Graphics Processing Unit
     \end{itemize}
  }  
 
@@ -231,9 +233,22 @@
       \end{tabular}
     \end{center}    
   }
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Pattern Finding}{name=patternfinding,column=1,span=2,above=generation}{
+  \headerbox{}{name=overview2,column=1,span=1}
+   {
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     \begin{itemize}
+       \item Useful for...
+       \begin{itemize}
+         \item Creating CPU prototypes
+         \item Embedded system running a limited range of applications
+         \item Design of GPU by identifying potential new instructions
+         \item Optimization of general programs by pattern recognition
+       \end{itemize}
+     \end{itemize}
+   }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Pattern Finding}{name=patternfinding,column=2,span=1,above=generation}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     \includegraphics[trim=34mm 30mm 10mm 20mm,clip=true,scale=0.5]{arm_cpu}
@@ -276,10 +291,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Performance Analysis}{name=analysis,column=3,below=definitions,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{tabular}{| l | c | c | c |}
+      \hline
+      \textbf{inst group} & \textbf{counts} & \textbf{CPI} & \textbf{Speedup(\%)} \\ \hline
+      ldr add ldr & 12692 & 7 & 10.27 \\ \hline
+      add ldr & 21704 & 4 & 10.21 \\ \hline
+      ldr add & 20307 & 4 & 9.30 \\ \hline
+      ldr add ldr add & 9700 & 8 & 8.85 \\ \hline
+    \end{tabular}
+
     \begin{itemize}
       \item Run a test program on original and extended ARM7 and compare results
     \end{itemize}
-.
 
     \begin{tabular}{| l | c | c |}
       \hline
@@ -295,6 +318,7 @@
 
     \begin{itemize}
       \item Most performance gain comes from reduced CPI.
+      \item It is difficult to reach beyond a certain point due to various contraints.
     \end{itemize}
 
   }
