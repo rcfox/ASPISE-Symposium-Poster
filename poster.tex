@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{relsize}
 \usepackage{multirow}
+\usepackage{tikz}
 \usepackage{bm}
 
 \usepackage{graphicx}
@@ -203,12 +204,9 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Instruction Generation}{name=generation,column=0,span=3,above=bottom}{
+  \headerbox{Instruction Generation}{name=generation,column=0,span=1.5,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \includegraphics[trim=25mm 35mm 18mm 60mm,clip=true,scale=0.5]{arm_instructions}
-    \begin{itemize}
-      \item Constraints in bus bandwidth, instruction length, number of operands and more
-    \end{itemize}
   }
 
   
@@ -240,6 +238,39 @@
     
     \includegraphics[trim=34mm 30mm 10mm 20mm,clip=true,scale=0.5]{arm_cpu}
     \\
+  }
+
+% Define block styles
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{}{name=generation2,column=1.5,span=1.5,above=bottom,below=patternfinding}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{tikzpicture}[node distance = 2cm, auto]
+      % Place nodes
+      \node [block] (parse) {Parse dynamic inst count};
+      \node [block, right of=parse] (count) {Count insts occurrences};
+      \node [block, right of=count] (remove) {Remove branch insts};
+      \node [block, right of=remove] (trim) {Trim based on constraints};
+      \node [block, right of=trim] (trim2) {Trim based on reordering};
+      \node [block, right of=trim2] (sort) {Sort and output results};
+      \node [block, below of=trim2] (map) {Map insts with operands};
+      \node [block, below of=sort] (map2) {Map insts with CPI};
+      % Draw edges
+      \path [line] (parse) -- (count);
+      \path [line] (count) -- (remove);
+      \path [line] (remove) -- (trim);
+      \path [line] (trim) -- (trim2);
+      \path [line] (trim2) -- (sort);
+      \path [line] (map) -- (trim2);
+      \path [line] (map2) -- (sort);
+    \end{tikzpicture}
+
+    \begin{itemize}
+      \item Constraints in bus bandwidth, instruction length, number of operands and more
+    \end{itemize}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
