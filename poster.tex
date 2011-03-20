@@ -247,11 +247,10 @@
     \\
 
     % Define block styles
-    \tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-      text width=5em, text centered, rounded corners, minimum height=4em]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=1.5cm,text centered, rounded corners, minimum height=2em]
     \tikzstyle{line} = [draw, -latex]
 
-    \begin{tikzpicture}[node distance = 2cm, auto]
+    \begin{tikzpicture}[node distance = 1.8cm, auto,font=\tiny]
       % Place nodes
       \node [block] (parse) {Parse dynamic inst count};
       \node [block, right of=parse] (count) {Count insts occurrences};
@@ -259,8 +258,8 @@
       \node [block, right of=remove] (trim) {Trim based on constraints};
       \node [block, right of=trim] (trim2) {Trim based on reordering};
       \node [block, right of=trim2] (sort) {Sort and output results};
-      \node [block, below of=trim2] (map) {Map insts with operands};
-      \node [block, below of=sort] (map2) {Map insts with CPI};
+      \node [block, below of=trim2, node distance=1cm] (map) {Map insts with operands};
+      \node [block, below of=sort, node distance=1cm] (map2) {Map insts with CPI};
       % Draw edges
       \path [line] (parse) -- (count);
       \path [line] (count) -- (remove);
