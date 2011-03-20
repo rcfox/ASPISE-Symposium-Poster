@@ -242,10 +242,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Performance Analysis}{name=analysis,column=3,below=definitions,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Yeah
-    \\
+    \begin{itemize}
+      \item Run a test program on original and extended ARM7 and compare results.
+    \end{itemize}
+
+    \begin{tabular}{| l | c | c |}
+      \hline
+      \cline{2-3}
+      & \multicolumn{2}{|c|}{Bitmap Size} \\ \cline{2-3}
+      & $20 \times 20$ & $100 \times 100$ \\ \hline
+      Total cycles & 477166 & 31564966 \\ \hline
+      Pattern occurrences & 18307 & 1211324 \\ \hline
+      inst cycles & 4 & 4 \\ \hline
+      new inst cycles & 3 & 3 \\ \hline
+      \textbf{Speedup} & 4\% & 4\% \\ \hline
+    \end{tabular}
   }
-  
+
 \end{poster}%
 %
 \end{document}
