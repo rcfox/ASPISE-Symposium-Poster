@@ -225,7 +225,14 @@
       \item Many repetitions over loops.
       \begin{itemize}
         \item More chance for optimization.
-      \end{itemize}
+        \item Amdahl's law dominates.
+          \begin{math}
+            \\
+            \\
+            S_{overall} = \frac{1}{(1-P) + \frac{P}{S}}
+            \\
+          \end{math}
+     \end{itemize}
       \item Speed is important!
       \end{itemize}
     \item Running on SimpleScalar simulating ARM7.
@@ -266,7 +273,7 @@
     str \textbf{\color{red}ldr add} str ldr ldr cmp blt ldr \textbf{\color{red}ldr add} mov mov str mov ldr
     \textbf{\color{red}ldr add} \\
     add mov mov str mov ldr \textbf{\color{red}ldr add} add mov add add mov mov str mov
-    ldr ldr \\
+    ldr ldr
     }
 
     \begin{itemize}
@@ -277,13 +284,15 @@
     \end{itemize}
   }
 
-  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Instruction Generation}{name=generation,column=1,span=2,below=patternfinding,
     above=bottom} {
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{center}
-      \includegraphics[trim=25mm 35mm 18mm 60mm,clip=true,scale=0.5]{arm_instructions}
-    \end{center}
+    \centering
+    \includegraphics[trim=25mm 35mm 18mm 60mm,clip=true,scale=0.4]{arm_instructions}
+
+    \centering
+    [1] ARM7 instruction format
 
     \begin{itemize}
     \item Take advantage of undefined opcode range for new instructions.
@@ -340,7 +349,7 @@
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Future Research}{name=research,column=3,below=analysis, above=bottom}{
+  \headerbox{Future Research}{name=research,column=3,below=analysis}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{itemize}
       \item Automate all stages from benchmarking to instruction generation.
@@ -350,6 +359,14 @@
     \end{itemize}
    }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Reference}{name=reference,column=3,below=research, above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{enumerate}
+      \item ARM Limited, ''ARM7TDMI Technical Reference Manual.''
+       (February 1, 2011)
+    \end{enumerate}
+    }
 \end{poster}%
 %
 \end{document}
